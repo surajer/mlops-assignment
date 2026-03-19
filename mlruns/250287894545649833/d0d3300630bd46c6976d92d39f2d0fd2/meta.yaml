@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/MLOps%20Assignment/mlops-assignment/src/mlruns/250287894545649833/d0d3300630bd46c6976d92d39f2d0fd2/artifacts
+end_time: 1773942983218
+entry_point_name: ''
+experiment_id: '250287894545649833'
+lifecycle_stage: active
+run_id: d0d3300630bd46c6976d92d39f2d0fd2
+run_name: rumbling-bee-562
+run_uuid: d0d3300630bd46c6976d92d39f2d0fd2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1773942975527
+status: 3
+tags: []
+user_id: sujat

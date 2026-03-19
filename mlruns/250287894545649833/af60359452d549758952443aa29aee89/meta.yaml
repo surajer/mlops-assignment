@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/MLOps%20Assignment/mlops-assignment/src/mlruns/250287894545649833/af60359452d549758952443aa29aee89/artifacts
+end_time: 1773941962950
+entry_point_name: ''
+experiment_id: '250287894545649833'
+lifecycle_stage: active
+run_id: af60359452d549758952443aa29aee89
+run_name: invincible-kit-523
+run_uuid: af60359452d549758952443aa29aee89
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1773941952752
+status: 3
+tags: []
+user_id: sujat
