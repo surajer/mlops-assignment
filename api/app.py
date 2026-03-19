@@ -8,7 +8,7 @@ app = FastAPI(title="ML Model API")
 # ✅ Force MLflow to use correct folder
 mlflow.set_tracking_uri("file:./mlruns")
 
-MODEL_URI ="mlruns/250287894545649833/d0d3300630bd46c6976d92d39f2d0fd2/artifacts/model"
+MODEL_URI = "mlruns/250287894545649833/d0d3300630bd46c6976d92d39f2d0fd2/artifacts/model"
 
 # Load model
 model = mlflow.pyfunc.load_model(MODEL_URI)
