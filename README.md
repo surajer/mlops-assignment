@@ -55,7 +55,7 @@ Access at: http://127.0.0.1:8000/docs
 
 ![alt text](endpoint-ui.png)
 
-![alt text](endpoint-ui(1).png) ![alt text](endpoint-ui-1.png)
+![alt text](endpoint-ui(1).png)
 
 ## Testing
 pytest
