@@ -50,6 +50,8 @@ python src/train.py
 mlflow ui
 Access UI at: http://127.0.0.1:5000
 
+![alt text](Mlflow-ui.png)
+
 ## API
 uvicorn api.app:app --reload
 Access at: http://127.0.0.1:8000/docs
