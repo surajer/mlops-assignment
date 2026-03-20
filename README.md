@@ -1,12 +1,10 @@
 #  MLOps Assignment(Iris Data)
 
 ## Overview
-
 This repository demonstrates an MLOps workflow covering model training, experiment tracking, API-based inference, containerization, and automated CI/CD.
 The model can consistently predict the flower type (Setosa, Versicolor, Virginica)
 
 ## Tech Stack
-
 - **Python 3.10**
 - **MLflow** – Experiment tracking & model logging
 - **Scikit-learn** – Model training
@@ -35,7 +33,6 @@ mlops-assignment/
 ```
 
 ## Machine Learning Pipeline
-
 - Dataset: Iris (built-in from scikit-learn)
 - Model: RandomForestClassifier
 - Tracking:
@@ -56,6 +53,10 @@ Access UI at: http://127.0.0.1:5000
 uvicorn api.app:app --reload
 Access at: http://127.0.0.1:8000/docs
 
+![alt text](endpoint-ui.png)
+
+![alt text](endpoint-ui(1).png) ![alt text](endpoint-ui-1.png)
+
 ## Testing
 pytest
 Coverage: API health check, Prediction endpoint validation
@@ -73,6 +74,7 @@ DockerHub Image:
 ``` bash
 docker pull <your-dockerhub-username>/ml-api:latest
 ```
+![alt text](dockerhub-image.png)
 
 ## CI/CD Pipeline
 Implemented using GitHub Actions.
