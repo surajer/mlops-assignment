@@ -3,7 +3,7 @@ from fastapi.responses import PlainTextResponse
 import mlflow
 import mlflow.pyfunc
 import numpy as np
-import time   
+import time
 
 from api.drift import detect_drift
 
@@ -20,20 +20,17 @@ model = mlflow.pyfunc.load_model(MODEL_URI)
 # Metrics variables
 request_count = 0
 total_latency = 0.0
-drift_count = 0   
+drift_count = 0
 
 
 @app.get("/")
 def home():
     return {"message": "API is running"}
 
-
 @app.post("/predict")
 def predict(data: dict):
     global request_count, total_latency, drift_count
-
-    start_time = time.time()               
-
+    start_time = time.time()
     input_data = np.array(data["input"])
 
     # Drift detection
@@ -42,7 +39,6 @@ def predict(data: dict):
         drift_count += 1
 
     prediction = model.predict(input_data).tolist()
-
     latency = time.time() - start_time    
 
     # Update metrics
