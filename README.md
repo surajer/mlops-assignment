@@ -18,6 +18,7 @@ The model can consistently predict the flower type (Setosa, Versicolor, Virginic
 - **Flake8** – Linting
 
 ##  Project Structure
+```bash
 mlops-assignment/
 │
 ├── api/ # FastAPI application (model serving)
@@ -27,12 +28,11 @@ mlops-assignment/
 ├── mlruns/ # MLflow artifacts (local tracking)
 ├── data/ # Processed data output
 ├── .github/workflows/ # CI/CD pipeline (GitHub Actions)
-│
 ├── Dockerfile
 ├── requirements.txt
 ├── README.md
 └── .dockerignore
-
+```
 
 ## Machine Learning Pipeline
 
