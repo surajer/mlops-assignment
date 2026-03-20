@@ -62,8 +62,6 @@ def extract_data(n_samples=50000):
     logging.info(f"Extracted {len(df)} rows")
     return df
 
-
-
 # Transform
 def transform_data(df):
     logging.info("Starting transformation...")
@@ -94,7 +92,6 @@ def transform_data(df):
 
     return df, agg_df
 
-
 def load_data(df, agg_df, output_dir="data"):
     logging.info("Loading data...")
 
@@ -104,7 +101,6 @@ def load_data(df, agg_df, output_dir="data"):
     agg_df.to_csv(f"{output_dir}/iris_aggregated.csv", index=False)
 
     logging.info("Data saved successfully")
-
 
 def run_etl():
     try:
@@ -119,7 +115,6 @@ def run_etl():
     except Exception as e:
         logging.error(f"Pipeline failed: {e}")
         raise
-
 
 if __name__ == "__main__":
     run_etl()

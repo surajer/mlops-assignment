@@ -4,7 +4,6 @@ import mlflow
 import mlflow.pyfunc
 import numpy as np
 import time
-
 from api.drift import detect_drift
 
 app = FastAPI(title="ML Model API")
@@ -39,7 +38,7 @@ def predict(data: dict):
         drift_count += 1
 
     prediction = model.predict(input_data).tolist()
-    latency = time.time() - start_time    
+    latency = time.time() - start_time
 
     # Update metrics
     request_count += 1
