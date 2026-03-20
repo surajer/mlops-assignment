@@ -31,7 +31,14 @@ mlops-assignment/
 ├── README.md
 └── .dockerignore
 ```
-
+## Create Virtual Environment
+```bash
+python3.10 -m venv venv
+```
+## Acivate Virtual Environment
+```bash
+venv\Scripts\activate
+```
 ## Machine Learning Pipeline
 - Dataset: Iris (built-in from scikit-learn)
 - Model: RandomForestClassifier
