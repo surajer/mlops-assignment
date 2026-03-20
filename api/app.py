@@ -5,6 +5,8 @@ import mlflow.pyfunc
 import numpy as np
 import time   
 
+from api.drift import detect_drift
+
 app = FastAPI(title="ML Model API")
 
 # MLflow to use correct folder
@@ -18,6 +20,7 @@ model = mlflow.pyfunc.load_model(MODEL_URI)
 # Metrics variables
 request_count = 0
 total_latency = 0.0
+drift_count = 0   
 
 
 @app.get("/")
@@ -27,11 +30,17 @@ def home():
 
 @app.post("/predict")
 def predict(data: dict):
-    global request_count, total_latency    
+    global request_count, total_latency, drift_count
 
     start_time = time.time()               
 
     input_data = np.array(data["input"])
+
+    # Drift detection
+    drift_flag = detect_drift(input_data)
+    if drift_flag:
+        drift_count += 1
+
     prediction = model.predict(input_data).tolist()
 
     latency = time.time() - start_time    
@@ -42,11 +51,11 @@ def predict(data: dict):
 
     return {
         "prediction": prediction,
-        "latency": round(latency, 4) 
+        "latency": round(latency, 4),
+        "drift_detected": drift_flag
     }
 
-
-# ✅ NEW: Metrics endpoint
+# Prometheus-compatible metrics
 @app.get("/metrics", response_class=PlainTextResponse)
 def metrics():
     avg_latency = total_latency / request_count if request_count > 0 else 0
@@ -54,5 +63,6 @@ def metrics():
     return (
         f"total_requests {request_count}\n"
         f"average_latency {avg_latency}\n"
+        f"drift_count {drift_count}\n"
         f'model_version{{version="v1"}} 1\n'
     )

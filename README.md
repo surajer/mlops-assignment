@@ -83,6 +83,15 @@ docker pull <your-dockerhub-username>/ml-api:latest
 ```
 ![alt text](dockerhub-image.png)
 
+## ETL Pipeline
+- Generates synthetic dataset (~100k rows)
+- Performs data cleaning (null handling, type conversion)
+- Applies transformations (feature engineering, aggregations)
+- Stores processed data in csv format
+``` bash
+python etl/etl.py
+``` 
+
 ## CI/CD Pipeline
 Implemented using GitHub Actions.
 
@@ -92,6 +101,26 @@ Implemented using GitHub Actions.
 - Unit testing (pytest)
 - Docker image build
 - Docker image push to DockerHub
+
+## Metrics
+The API exposes a /metrics endpoint that provides Prometheus-compatible metrics for monitoring.
+- Metrics Tracked:
+- Total API requests
+- Average latency
+- Drift detection count
+- Model version
+
+### Access Metrics
+``` bash
+http://127.0.0.1:8000/metrics
+```
+### Example output
+``` bash
+total_requests 5
+average_latency 0.0023
+drift_count 2
+model_version{version="v1"} 1
+```
 
 ## Security Best Practices
 Credentials managed via GitHub Secrets

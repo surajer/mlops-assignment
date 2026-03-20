@@ -33,7 +33,7 @@ def main():
         # Log model
         mlflow.sklearn.log_model(model, "model")
 
-        print(f"✅ Accuracy: {acc}")
+        print(f"Accuracy: {acc}")
 
 if __name__ == "__main__":
     main()
